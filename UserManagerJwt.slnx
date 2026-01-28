@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Elementos de la solución/">
+    <File Path="Mejoras.txt" />
+  </Folder>
   <Project Path="Api/Api.csproj" Id="0f7f3c27-5f8a-4864-bafa-b2c48f478717" />
   <Project Path="Application/Application.csproj" Id="d1c8d819-2528-4fef-b529-9c8b42850094" />
   <Project Path="Domain/Domain.csproj" Id="7c01a8b0-e148-41c6-bf08-72d6c61e777f" />

@@ -1,0 +1,20 @@
+MEJORAS USEREPOSITORY
+El método DeleteUserAsync debería recibir un Id en lugar de la entidad completa.
+
+Evitar llamar a SaveChangesAsync dentro del repositorio y usar una Unit of Work.
+
+Usar AsNoTracking() en métodos de solo lectura para mejorar rendimiento.
+
+Centralizar la lógica de actualización usando Entry(entity).State = Modified.
+
+Manejar mejor los casos en los que la entidad no existe (nulls / excepciones controladas).
+
+Añadir cancelación (CancellationToken) a los métodos async.
+
+Definir claramente el lifetime (Scoped) del repositorio y del DbContext.
+
+Añadir tests unitarios usando un DbContext en memoria o mocks
+
+
+
+
