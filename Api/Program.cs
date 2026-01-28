@@ -1,3 +1,4 @@
+using Application.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<UserManagerDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
     );
+
+builder.Services.AddScoped<IUserRepository, Infrastructure.Repositories.UserRepository>();
 
 var app = builder.Build();
 

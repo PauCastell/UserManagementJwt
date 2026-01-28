@@ -1,4 +1,4 @@
-﻿namespace Api.Dtos
+﻿namespace Application.Dtos
 {
     public class UserResponseDto
     {
