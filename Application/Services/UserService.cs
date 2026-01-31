@@ -11,7 +11,7 @@ namespace Application.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        public readonly IPasswordHasher _passwordHasher;
+        private readonly IPasswordHasher _passwordHasher;
 
         public UserService(IUserRepository userRepository, IPasswordHasher passwordHasher)
         {
@@ -37,6 +37,20 @@ namespace Application.Services
             };
 
             await _userRepository.AddUserAsync(user);
+
+            return new UserResponseDto
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email
+            };
+        }
+
+        public async Task<UserResponseDto?> GetUserByIdAsync(Guid id)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+
+            if (user == null) return null;
 
             return new UserResponseDto
             {

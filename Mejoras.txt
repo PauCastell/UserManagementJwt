@@ -18,3 +18,16 @@ Añadir tests unitarios usando un DbContext en memoria o mocks
 
 
 
+
+Crear excepciones personalizadas:
+
+UserAlreadyExistsException
+
+InvalidCredentialsException (más adelante para login)
+
+Revisar el controller para capturar solo estas excepciones y devolver BadRequest o el código HTTP adecuado
+
+Revisar CreatedAtAction cuando tengas el endpoint de GetUserById
+
+
+
