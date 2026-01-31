@@ -1,4 +1,5 @@
 using Application.Interfaces;
+using Application.Services;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<UserManagerDbContext>(options =>
     );
 
 builder.Services.AddScoped<IUserRepository, Infrastructure.Repositories.UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
