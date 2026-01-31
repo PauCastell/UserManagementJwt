@@ -8,21 +8,8 @@ namespace Infrastructure.Services
 {
     public class PasswordHasherService : IPasswordHasher
     {
-        public string Hash(string password)
-        {
-            byte[] salt = RandomNumberGenerator.GetBytes(16);
+        public string Hash(string password) => BCrypt.Net.BCrypt.HashPassword(password);
 
-            byte[] hashBytes = SHA256.HashData([.. Encoding.UTF8.GetBytes(password), .. salt]);
-
-            byte[] hashWithSalt = salt.Concat(hashBytes).ToArray();
-
-            return Convert.ToBase64String(hashWithSalt);
-        }
-
-        //TODO: Implementar este método
-        public bool Verify(string password, string hashedPassword)
-        {
-            throw new NotImplementedException();
-        }
+        public bool Verify(string password, string hashedPassword) => BCrypt.Net.BCrypt.Verify(password, hashedPassword);
     }
 }
