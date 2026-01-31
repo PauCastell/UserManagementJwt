@@ -8,5 +8,6 @@ namespace Application.Interfaces
     public interface IUserService
     {
         Task<UserResponseDto> RegisterAsync(CreateUserRequestDto request);
+        Task<UserResponseDto?> GetUserByIdAsync(Guid id);
     }
 }
