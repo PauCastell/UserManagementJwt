@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -14,14 +15,21 @@ namespace Api.Controllers
             _userService = userService;
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById(Guid id)
         {
             var user = await _userService.GetUserByIdAsync(id);
 
-            if(user == null) return NotFound();
+            if (user == null) return NotFound();
 
             return Ok(user);
+        }
+    
+        [HttpGet("test-error")]
+        public IActionResult TestError()
+        {
+            throw new Exception("This is a test exception to demonstrate error handling.");
         }
     }
 }
