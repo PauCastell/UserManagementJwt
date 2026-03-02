@@ -9,5 +9,6 @@ namespace Application.Interfaces
     {
         Task<UserResponseDto> RegisterAsync(CreateUserRequestDto request);
         Task<UserResponseDto?> GetUserByIdAsync(Guid id);
+        Task<Loginresponse> LoginAsync(LoginRequestDto request);
     }
 }
