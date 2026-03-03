@@ -44,6 +44,11 @@ namespace Infrastructure.Repositories
             return await _context.Users.FindAsync(id);
         }
 
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
+        {
+            return await _context.Users.ToListAsync();
+        }
+
         public async Task UpdateAsync(User user)
         {
             _context.Users.Update(user);
