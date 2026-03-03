@@ -13,7 +13,5 @@ namespace Application.Interfaces
         Task<bool> DeleteUserAsync(User user);
         Task <User?> GetUserByIdAsync (Guid id);
         Task <User?> GetUserByEmailAsync (string email);
-
-        Task<UserResponseDto> UpdateUserAsync(Guid id, UpdateUserDto user);
     }
 }
