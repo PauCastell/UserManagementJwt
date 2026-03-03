@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Dtos;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +12,8 @@ namespace Application.Interfaces
         Task UpdateAsync(User user);
         Task<bool> DeleteUserAsync(User user);
         Task <User?> GetUserByIdAsync (Guid id);
-        Task <User?> GetUserByEmailAsync (string email);  
+        Task <User?> GetUserByEmailAsync (string email);
+
+        Task<UserResponseDto> UpdateUserAsync(Guid id, UpdateUserDto user);
     }
 }
